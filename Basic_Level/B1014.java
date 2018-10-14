@@ -1,3 +1,4 @@
+package Basic_Level;
 /*
 1014 福尔摩斯的约会 （20 分）
 大侦探福尔摩斯接到一张奇怪的字条：我们约会吧！ 3485djDkxh4hhGE 2984akDfkkkkggEdsb s&hgsfdk d&Hyscvnm。

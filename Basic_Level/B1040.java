@@ -1,3 +1,4 @@
+package Basic_Level;
 /*
 1040. 有几个PAT（25） 
 字符串APPAPT中包含了两个单词“PAT”，其中第一个PAT是第2位(P),第4位(A),第6位(T)； 

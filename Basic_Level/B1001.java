@@ -1,3 +1,4 @@
+package Basic_Level;
 /*
 1001 害死人不偿命的(3n+1)猜想 （15 分）
 对任何一个正整数 n，如果它是偶数，那么把它砍掉一半；如果它是奇数，那么把 (3n+1) 砍掉一半。反复砍下去，最后一定得到 n=1。
@@ -13,6 +14,7 @@ public class B1001 {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		int num = scanner.nextInt();
+		scanner.close();
 		int step = 0;
 		while(num != 1) {
 			if(num % 2 == 0) {

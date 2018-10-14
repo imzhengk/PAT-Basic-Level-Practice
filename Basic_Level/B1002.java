@@ -1,3 +1,4 @@
+package Basic_Level;
 /*
 1002 写出这个数 （20 分）
 读入一个正整数 n，计算其各位数字之和，用汉语拼音写出和的每一位数字。
@@ -12,6 +13,7 @@ public class B1002 {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		String s = scanner.nextLine();
+		scanner.close();
 		char [] CharArray = s.toCharArray();
 		int sum = 0;
 		for(char c:CharArray) {
