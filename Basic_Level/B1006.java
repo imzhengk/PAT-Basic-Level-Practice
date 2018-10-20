@@ -1,13 +1,13 @@
 package Basic_Level;
+
 /*
-1006 »»¸ö¸ñÊ½Êä³öÕûÊý £¨15 ·Ö£©
-ÈÃÎÒÃÇÓÃ×ÖÄ¸ B À´±íÊ¾¡°°Ù¡±¡¢×ÖÄ¸ S ±íÊ¾¡°Ê®¡±£¬ÓÃ 12...n À´±íÊ¾¸öÎ»Êý×Ö £¬»»¸ö¸ñÊ½À´Êä³öÈÎÒ»¸ö²»³¬¹ý 3 Î»µÄÕýÕûÊý¡£
-ÀýÈç 234 Ó¦¸Ã±»Êä³öÎª BBSSS1234£¬ÒòÎªËüÓÐ 2 ¸ö¡°°Ù¡±¡¢3 ¸ö¡°Ê®¡±¡¢ÒÔ¼°¸öÎ»µÄ 4¡£
-ÊäÈë¸ñÊ½£º
-Ã¿¸ö²âÊÔÊäÈë°üº¬ 1 ¸ö²âÊÔÓÃÀý£¬¸ø³öÕýÕûÊý n£¨<1000£©¡£
-Êä³ö¸ñÊ½£º
-Ã¿¸ö²âÊÔÓÃÀýµÄÊä³öÕ¼Ò»ÐÐ£¬ÓÃ¹æ¶¨µÄ¸ñÊ½Êä³ö n¡£
+1006. æ¢ä¸ªæ ¼å¼è¾“å‡ºæ•´æ•° (15)
+è®©æˆ‘ä»¬ç”¨å­—æ¯Bæ¥è¡¨ç¤ºâ€œç™¾â€ã€å­—æ¯Sè¡¨ç¤ºâ€œåâ€ï¼Œç”¨â€œ12...nâ€æ¥è¡¨ç¤ºä¸ªä½æ•°å­—nï¼ˆ<10ï¼‰ï¼Œæ¢ä¸ªæ ¼å¼æ¥è¾“å‡ºä»»ä¸€ä¸ªä¸è¶…è¿‡3ä½çš„æ­£æ•´æ•°ã€‚
+ä¾‹å¦‚234åº”è¯¥è¢«è¾“å‡ºä¸ºBBSSS1234ï¼Œå› ä¸ºå®ƒæœ‰2ä¸ªâ€œç™¾â€ã€3ä¸ªâ€œåâ€ã€ä»¥åŠä¸ªä½çš„4ã€‚
+è¾“å…¥æ ¼å¼ï¼šæ¯ä¸ªæµ‹è¯•è¾“å…¥åŒ…å«1ä¸ªæµ‹è¯•ç”¨ä¾‹ï¼Œç»™å‡ºæ­£æ•´æ•°nï¼ˆ<1000ï¼‰ã€‚
+è¾“å‡ºæ ¼å¼ï¼šæ¯ä¸ªæµ‹è¯•ç”¨ä¾‹çš„è¾“å‡ºå ä¸€è¡Œï¼Œç”¨è§„å®šçš„æ ¼å¼è¾“å‡ºnã€‚
 */
+
 import java.util.Scanner;
 public class B1006 {
 
@@ -19,6 +19,7 @@ public class B1006 {
 			Single single = new Single(ch[0]);
 			single.show();
 		}
+		scanner.close();
 		if(str.length()==2) {
 			Ten ten = new Ten(ch[0]);
 			ten.show();

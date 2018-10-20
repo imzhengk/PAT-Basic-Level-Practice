@@ -1,4 +1,5 @@
 package Basic_Level;
+
 /*
 1002 写出这个数 （20 分）
 读入一个正整数 n，计算其各位数字之和，用汉语拼音写出和的每一位数字。
@@ -7,6 +8,7 @@ package Basic_Level;
 输入样例：1234567890987654321123456789
 输出样例：yi san wu
 */
+
 import java.util.Scanner;
 public class B1002 {
 
