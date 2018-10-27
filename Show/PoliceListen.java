@@ -15,7 +15,7 @@ public class PoliceListen implements ItemListener {
    public void itemStateChanged(ItemEvent e)  {
       textShow.setText(null);
       try{ String fileName = choice.getSelectedItem().toString();
-           File file = new File("src/" + fileName);
+           File file = new File("src/Basic_Level/" + fileName);
            FileReader inOne = new FileReader(file); 
            BufferedReader inTwo = new BufferedReader(inOne);
            String s=null;

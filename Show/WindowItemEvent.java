@@ -15,8 +15,8 @@ public class WindowItemEvent extends JFrame {
    void init() {
       setLayout(new FlowLayout());
       choice = new JComboBox();
-      choice.addItem("请选择文件:");
-      File dir=new File("src/"); //p179
+      choice.addItem("閫夋嫨鏂囦欢:");
+      File dir=new File("src/Basic_Level"); //p179
       FileAccept fileAccept=new FileAccept();
       fileAccept.setExtendName("java");
       String [] fileName=dir.list(fileAccept);
@@ -27,11 +27,11 @@ public class WindowItemEvent extends JFrame {
       listener = new PoliceListen();
       listener.setJComboBox(choice);
       listener.setJTextArea(textShow);
-      choice.addItemListener(listener);   //choice是事件源,listener是监视器
+      choice.addItemListener(listener);   
       add(choice);
       add(new JScrollPane(textShow));
    }
-   class FileAccept implements FilenameFilter { //内部类
+   class FileAccept implements FilenameFilter { 
       private String extendName;
       public void setExtendName(String s) {
          extendName="."+s;
