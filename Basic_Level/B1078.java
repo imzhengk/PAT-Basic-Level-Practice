@@ -1,38 +1,76 @@
 package Basic_Level;
 
-import java.util.ArrayList;
-import java.util.Scanner;
-
-/*
-1078 字符串压缩与解压 （20 分）
-文本压缩有很多种方法，这里我们只考虑最简单的一种：把由相同字符组成的一个连续的片段用这个字符和片段中含有这个字符的个数来表示。
-例如 ccccc 就用 5c 来表示。如果字符没有重复，就原样输出。例如 aba 压缩后仍然是 aba。
-解压方法就是反过来，把形如 5c 这样的表示恢复为 ccccc。
-本题需要你根据压缩或解压的要求，对给定字符串进行处理。这里我们简单地假设原始字符串是完全由英文字母和空格组成的非空字符串。
-输入格式：
-输入第一行给出一个字符，如果是 C 就表示下面的字符串需要被压缩；如果是 D 就表示下面的字符串需要被解压。
-第二行给出需要被压缩或解压的不超过 1000 个字符的字符串，以回车结尾。题目保证字符重复个数在整型范围内，且输出文件不超过 1MB。
-输出格式：
-根据要求压缩或解压字符串，并在一行中输出结果。
- */
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 public class B1078 {
 
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		String s = sc.nextLine();
-		String str = sc.nextLine();
-		sc.close();
-		
-	}
-	public static void Compression(String str) {
-		char[] chars = str.toCharArray();
-		ArrayList<Character> list = new ArrayList<Character>();
-		for(int i=0;i<chars.length - 1;i++) {
-			if(chars[i] == chars[i+1]) {
-				
-			}
+	public static void main(String[] args) throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String ch = br.readLine();
+        String str = br.readLine();
+		if(ch.equals("C")) {
+			Compression(str);
+		}
+		if(ch.equals("D")) {
+			Decompression(str);
 		}
 	}
-
+	static void Decompression(String str) {
+		StringBuffer sb = new StringBuffer();
+		char[] chs = str.toCharArray();
+		int num = 0;
+		for(int i=0;i<chs.length-1;i++) {
+			if(Judge(chs[i]) && Judge(chs[i+1])) {
+				num = num*10 + (chs[i] - '0');
+			}
+			if(Judge(chs[i]) && !Judge(chs[i+1])) {
+				num = num*10 + (chs[i] - '0');
+				for(int j=0;j<num-1;j++) {
+					sb.append(chs[i+1]);
+				}
+				num = 0;
+			}
+			if(!Judge(chs[i])) {
+				sb.append(chs[i]);
+			}
+		}
+		sb.append(chs[chs.length-1]);
+		System.out.println(sb.toString());
+	}
+	static void Compression(String str) {
+		StringBuffer sb = new StringBuffer();
+		char[] chs = str.toCharArray();
+		int num = 1;
+		for(int i=0;i<chs.length-1;i++) {
+			if(chs[i]==chs[i+1]) {
+				num++;
+			}
+			else {
+				if(num==1) {
+					sb.append(chs[i]);
+				}
+				else {
+					sb.append(num);
+					sb.append(chs[i]);
+					num = 1;
+				}
+			}
+		}
+		if(num==1) {
+			sb.append(chs[chs.length-1]);
+		}
+		else {
+			sb.append(num);
+			sb.append(chs[chs.length-1]);
+		}
+		System.out.println(sb.toString());
+	}
+	static boolean Judge(char ch) {
+		if(ch>='0' && ch<='9')
+			return true;
+		else
+			return false;
+		
+	}
 }
