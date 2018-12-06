@@ -3,7 +3,14 @@ package Basic_Level;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-//答案错误
+import java.math.BigInteger;
+
+/*
+ *1.最后输出用BigInteger；
+ *2.进位要输出；
+ *3.数字0不能当被除数  
+ */
+
 public class B1074 {
 
 	public static void main(String[] args) throws IOException {
@@ -27,20 +34,22 @@ public class B1074 {
 			int tmp = (int)(numa[i] - '0') + (int)(numb[i] - '0');
 			int r = (int)(biao[i] - '0');
 			if(r==0) r = 10;
-			if(tmp==0) {
+			int tt = tmp + t;
+			if(tt==0) {
 				ans[i] = 0;
 				t = 0;
 			}
 			else {
-				int tt = tmp + t;
 				ans[i] = tt % r;
 				t = tt / r;	
 			}
 		}
 		StringBuffer bs = new StringBuffer();
+		bs.append(t);
 		for(int i : ans) {
 			bs.append(i);
 		}
-		System.out.println(Integer.parseInt(bs.toString()));
+		BigInteger bi = new BigInteger(bs.toString());
+		System.out.println(bi);
 	}
 }
