@@ -25,6 +25,7 @@ public class B1012 {
 		for(int i=0;i<n;i++) {
 			num[i] = sc.nextInt();
 		}
+		sc.close();
 		String[] a = new String[5];
 		A1 a1 = new A1();
 		a[0] = a1.getResult(n, num);
