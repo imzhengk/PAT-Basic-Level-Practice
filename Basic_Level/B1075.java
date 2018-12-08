@@ -4,8 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.text.DecimalFormat;
-//B1025的内容未改
-public class B1075_No {
+
+public class B1075 {
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -21,30 +21,63 @@ public class B1075_No {
 			int next = Integer.parseInt(temp[2]);			
 			nodes[i] = new Node2(first,data,next);
 		}
-		Node2[] nodek = new Node2[K+1];
-		nodek[0] = new Node2(add,0,add);
-		for(int t=0;t<len/K;t++) {
-			for(int i=1;i<=K;i++) {
-				for(Node2 tnode : nodes) {
-					if(tnode.address == nodek[i-1].next) {
-						nodek[i] = tnode;
-					}
-				}
-			}
-			nodek[0].next = nodek[K].next;
-			nodek[0].address = nodek[K].next;
-			for(int i=K;i>0;i--) {
-				nodek[i].next = nodek[i-1].address;
-				System.out.println(nodek[i]);
+		Node2[] nodek = new Node2[len];
+		for(Node2 tnode : nodes) {
+			if(tnode.address == add) {
+				nodek[0] = tnode;
 			}
 		}
-		for(int t=0;t<len%K;t++) {
+		for(int i=1;i<len;i++) {
 			for(Node2 tnode : nodes) {
-				if(tnode.address == nodek[0].next) {
-					nodek[0] = tnode;
-					System.out.println(nodek[0]);
+				if(tnode.address == nodek[i-1].next) {
+					nodek[i] = tnode;
 				}
 			}
+		}		
+		int t = 0;
+		for(Node2 tnode : nodek) {
+			if(t!=0 && tnode.data<0) {
+				nodes[t] = tnode;
+				nodes[t-1].next = nodes[t].address;
+				t++;
+			}
+			else if(t==0 && tnode.data<0) {
+				nodes[t++] = tnode;
+			}
+		}
+		for(Node2 tnode : nodek) {
+			if(t!=0 && tnode.data>=0 && tnode.data<K) {
+				nodes[t] = tnode;
+				nodes[t-1].next = nodes[t].address;
+				t++;
+			}
+			else if(t==0 && tnode.data>=0 && tnode.data<K) {
+				nodes[t++] = tnode;
+			}
+		}
+		for(Node2 tnode : nodek) {
+			if(t!=0 && tnode.data==K) {
+				nodes[t] = tnode;
+				nodes[t-1].next = nodes[t].address;
+				t++;
+			}
+			else if(t==0 && tnode.data==K) {
+				nodes[t++] = tnode;
+			}
+		}
+		for(Node2 tnode : nodek) {
+			if(t!=0 && tnode.data>K) {
+				nodes[t] = tnode;
+				nodes[t-1].next = nodes[t].address;
+				t++;
+			}
+			else if(t==0 && tnode.data>K) {
+				nodes[t++] = tnode;
+			}
+		}
+		nodes[--t].next = -1;
+		for(Node2 tnode : nodes) {
+			System.out.println(tnode);
 		}
 	}		
 }
